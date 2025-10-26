@@ -1,4 +1,3 @@
-# school/views.py
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -50,7 +49,6 @@ class HomeworkDetailView(DetailView):
         user = self.request.user
         my_sub = None
         if user.is_authenticated:
-            # твоя сдача этого ДЗ (или None)
             my_sub = self.object.submissions.filter(student=user).first()
         ctx['my_submission'] = my_sub
         return ctx
