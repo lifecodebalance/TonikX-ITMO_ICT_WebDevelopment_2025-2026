@@ -8,8 +8,6 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-# Если у тебя уже есть собственные формы/модели — используй их
-# ИНАЧЕ временные заглушки, чтобы проект запустился:
 try:
     from .forms import SubmissionForm, ReviewForm, SignupForm  # твои формы
 except Exception:
@@ -20,7 +18,6 @@ except Exception:
 try:
     from .models import Homework, Submission, Review  # твои модели
 except Exception:
-    # Временные заглушки для IDE/рантайма, пока модели не созданы
     class _Dummy: pass
     Homework = Submission = Review = _Dummy
 
