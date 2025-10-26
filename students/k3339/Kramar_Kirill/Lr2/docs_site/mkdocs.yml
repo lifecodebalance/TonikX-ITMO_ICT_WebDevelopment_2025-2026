@@ -1,0 +1,8 @@
+site_name: ЛР2 — Доска ДЗ
+theme:
+  name: material
+nav:
+  - Обзор: index.md
+  - Данные: data-model.md
+  - Интерфейс и роли: ui-and-roles.md
+  - Маршруты: endpoints.md
