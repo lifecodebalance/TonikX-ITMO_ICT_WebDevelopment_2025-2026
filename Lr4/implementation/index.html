@@ -1,0 +1,1805 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Lr3/implementation/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Реализация frontend - Лабораторные работы — Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#no4" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Лабораторные работы — Web" class="md-header__button md-logo" aria-label="Лабораторные работы — Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Лабораторные работы — Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Реализация frontend
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Лабораторные работы — Web" class="md-nav__button md-logo" aria-label="Лабораторные работы — Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Лабораторные работы — Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Главная
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ЛР2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ЛР2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lr2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Обзор
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lr2/data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Модель данных
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lr2/ui-and-roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Интерфейс и роли
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lr2/endpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Эндпоинты
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ЛР3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ЛР3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lr3/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Реализация backend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ЛР4
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ЛР4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Реализация frontend
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Реализация frontend
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Авторизация и регистрация
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Авторизация и регистрация">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Регистрация
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Логин
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Карточка учителя
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Карточка учеников
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Классы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Уроки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Оценки
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Авторизация и регистрация
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Авторизация и регистрация">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Регистрация
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Логин
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Карточка учителя
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Карточка учеников
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Классы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Уроки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Оценки
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="no4">Выполнение лабораторной работы №4</h1>
+<h2 id="1">1. <strong>Авторизация и регистрация</strong></h2>
+<p>Для работы со всеми сущностями системы надо войти или зарегестрироваться:</p>
+<h3 id="11">1.1 Регистрация</h3>
+<p><img alt="" src="../../img/reg.png" /></p>
+<pre><code class="language-python">&lt;template&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h2&gt;Register&lt;/h2&gt;
+    &lt;form @submit.prevent=&quot;register&quot;&gt;
+      &lt;input v-model=&quot;email&quot; placeholder=&quot;Email&quot; type=&quot;email&quot; required /&gt;
+      &lt;input v-model=&quot;username&quot; placeholder=&quot;Username&quot; type=&quot;text&quot; required /&gt;
+      &lt;input v-model=&quot;password&quot; placeholder=&quot;Password&quot; type=&quot;password&quot; required /&gt;
+      &lt;input v-model=&quot;re_password&quot; placeholder=&quot;Confirm Password&quot; type=&quot;password&quot; required /&gt;
+      &lt;button type=&quot;submit&quot;&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;footer&gt;
+      &lt;p&gt;Already have an account? &lt;RouterLink to=&quot;/login&quot;&gt;Login&lt;/RouterLink&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import API from &quot;@/axios&quot;;
+
+export default {
+  data() {
+    return {
+      email: &quot;&quot;,
+      username: &quot;&quot;,
+      password: &quot;&quot;,
+      re_password: &quot;&quot;,
+    };
+  },
+  methods: {
+    async register() {
+      try {
+        await API.post('/auth/users/', {
+          email: this.email,
+          username: this.username,
+          password: this.password,
+          re_password: this.re_password,
+        });
+        this.$router.push('/login');
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+@import &quot;@/assets/styles.css&quot;;
+&lt;/style&gt;
+
+</code></pre>
+<hr />
+<h3 id="12">1.2 Логин</h3>
+<p><img alt="" src="../../img/log.png" />
+<img alt="" src="../../img/LOGGED.png" /></p>
+<pre><code class="language-python">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;Login&lt;/h2&gt;
+    &lt;form @submit.prevent=&quot;login&quot;&gt;
+      &lt;input v-model=&quot;username&quot; placeholder=&quot;Username&quot; type=&quot;text&quot; required /&gt;
+      &lt;input v-model=&quot;password&quot; placeholder=&quot;Password&quot; type=&quot;password&quot; required /&gt;
+      &lt;button type=&quot;submit&quot;&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import API from &quot;@/axios&quot;;
+import TokenStore from &quot;../stores/token.ts&quot;;
+
+export default {
+  data() {
+    return {
+      username: &quot;&quot;,
+      password: &quot;&quot;,
+    };
+  },
+  methods: {
+    async login() {
+      try {
+        const response = await API.post('/auth/token/login/', {
+          username: this.username,
+          password: this.password,
+        });
+        TokenStore.setToken(response.data.auth_token);
+        console.log('Token saved:', TokenStore.getToken());
+        //localStorage.setItem('token', response.data.auth_token);
+        //console.log('Token:', localStorage.getItem('token'));
+        this.$emit('login');
+        this.$router.push('/profile');
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+@import &quot;@/assets/styles.css&quot;;
+&lt;/style&gt;
+</code></pre>
+<hr />
+<h2 id="2">2. <strong>Карточка учителя</strong></h2>
+<p>Учителей можно искать, добавлять, редактировать и удалять:</p>
+<p><img alt="" src="../../img/students.png" /></p>
+<pre><code class="language-python">&lt;template&gt;
+  &lt;div class=&quot;app-container&quot;&gt;
+    &lt;header class=&quot;app-header&quot;&gt;
+      &lt;input
+          v-model=&quot;searchQuery&quot;
+          type=&quot;text&quot;
+          class=&quot;search-input&quot;
+          placeholder=&quot;Search teachers by name&quot;
+      /&gt;
+    &lt;/header&gt;
+
+    &lt;button @click=&quot;openCreateModal&quot; class=&quot;add-teacher-btn&quot;&gt;Add Teacher&lt;/button&gt;
+
+    &lt;main class=&quot;main-content&quot;&gt;
+      &lt;div v-if=&quot;filteredTeachers.length &gt; 0&quot; class=&quot;teacher-list&quot;&gt;
+        &lt;div
+            v-for=&quot;teacher in filteredTeachers&quot;
+            :key=&quot;teacher.id&quot;
+            class=&quot;teacher-card&quot;
+        &gt;
+          &lt;div class=&quot;teacher-card-header&quot;&gt;
+            &lt;h3&gt;{{ teacher.full_name }}&lt;/h3&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;teacher-card-body&quot;&gt;
+            &lt;p&gt;&lt;strong&gt;Subjects:&lt;/strong&gt; {{ teacher.subjects.join(&quot;, &quot;) }}&lt;/p&gt;
+            &lt;p v-if=&quot;teacher.class_name&quot;&gt;&lt;strong&gt;Class:&lt;/strong&gt; {{ teacher.class_name }}&lt;/p&gt;
+            &lt;p v-if=&quot;teacher.classroom&quot;&gt;&lt;strong&gt;Classroom:&lt;/strong&gt; {{ teacher.classroom.number }}&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;teacher-card-footer&quot;&gt;
+            &lt;button @click=&quot;openEditModal(teacher)&quot;&gt;Edit&lt;/button&gt;
+            &lt;button @click=&quot;deleteTeacher(teacher.id)&quot;&gt;Delete&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div v-else&gt;
+        &lt;p&gt;No teachers found.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;CreateTeacherModal
+        v-if=&quot;isCreateModalVisible&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchTeachers&quot;
+        @teacherUpdated=&quot;fetchTeachers&quot;
+    /&gt;
+
+    &lt;EditTeacherModal
+        v-if=&quot;isEditModalVisible&quot;
+        :teacher=&quot;selectedTeacher&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchTeachers&quot;
+        @teacherUpdated=&quot;fetchTeachers&quot;
+    /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import API from &quot;@/axios&quot;;
+import CreateTeacherModal from &quot;../components/CreateTeacherModal.vue&quot;;
+import EditTeacherModal from &quot;../components/EditTeacherModal.vue&quot;;
+
+export default {
+  components: {
+    CreateTeacherModal,
+    EditTeacherModal,
+  },
+  data() {
+    return {
+      teachers: [],
+      searchQuery: &quot;&quot;,
+      isCreateModalVisible: false,
+      isEditModalVisible: false,
+      selectedTeacher: null,
+    };
+  },
+  computed: {
+    filteredTeachers() {
+      return this.teachers.filter((teacher) =&gt;
+          teacher.full_name
+              .toLowerCase()
+              .includes(this.searchQuery.toLowerCase())
+      );
+    },
+  },
+  methods: {
+    async fetchTeachers() {
+      try {
+        const response = await API.get(&quot;/teachers/&quot;);
+        if (response.data) {
+          this.teachers = response.data.map((teacher) =&gt; ({
+            ...teacher,
+            full_name: `${teacher.first_name} ${teacher.last_name} ${teacher.middle_name || &quot;&quot;}`.trim(),
+            subjects: teacher.subject.map((subject) =&gt; subject.name),
+            class_name: teacher.klass
+                ? `${teacher.klass.parallel}-${teacher.klass.class_number}`
+                : null,
+            classroom: teacher.classroom ? teacher.classroom : null,
+          }));
+        } else {
+          console.error(&quot;Unexpected API response structure:&quot;, response.data);
+          this.teachers = [];
+        }
+      } catch (error) {
+        console.error(&quot;Error fetching teachers:&quot;, error);
+      }
+    },
+    async deleteTeacher(teacherId) {
+      try {
+        await API.delete(`/teachers/${teacherId}/`);
+        this.teachers = this.teachers.filter((teacher) =&gt; teacher.id !== teacherId);
+      } catch (error) {
+        console.error(&quot;Error deleting teacher:&quot;, error);
+      }
+    },
+    openCreateModal() {
+      this.selectedTeacher = null;
+      this.isCreateModalVisible = true;
+    },
+    openEditModal(teacher) {
+      this.selectedTeacher = { ...teacher };
+      this.isEditModalVisible = true;
+    },
+    closeModal() {
+      this.isCreateModalVisible = false;
+      this.isEditModalVisible = false;
+    },
+  },
+  mounted() {
+    this.fetchTeachers();
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+@import &quot;@/assets/styles.css&quot;;
+&lt;/style&gt;
+</code></pre>
+<hr />
+<h2 id="3">3. <strong>Карточка учеников</strong></h2>
+<p>Учеников также можно искать, добавлять, редактировать и удалять:</p>
+<p><img alt="" src="../../img/classes.png" /></p>
+<pre><code class="language-python">&lt;template&gt;
+  &lt;div class=&quot;app-container&quot;&gt;
+    &lt;header class=&quot;app-header&quot;&gt;
+      &lt;input
+          v-model=&quot;searchQuery&quot;
+          type=&quot;text&quot;
+          class=&quot;search-input&quot;
+          placeholder=&quot;Search students by name or class&quot;
+      /&gt;
+    &lt;/header&gt;
+
+    &lt;button @click=&quot;openCreateModal&quot; class=&quot;add-student-btn&quot;&gt;Add Student&lt;/button&gt;
+
+    &lt;main class=&quot;main-content&quot;&gt;
+      &lt;div v-if=&quot;filteredStudents.length &gt; 0&quot; class=&quot;student-list&quot;&gt;
+        &lt;div
+            v-for=&quot;student in filteredStudents&quot;
+            :key=&quot;student.id&quot;
+            class=&quot;student-card&quot;
+        &gt;
+          &lt;div class=&quot;student-card-header&quot;&gt;
+            &lt;h3&gt;{{ student.full_name }}&lt;/h3&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;student-card-body&quot;&gt;
+            &lt;p&gt;&lt;strong&gt;Class:&lt;/strong&gt; {{ student.class_name }}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Gender:&lt;/strong&gt; {{ student.gender }}&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;student-card-footer&quot;&gt;
+            &lt;button @click=&quot;openEditModal(student)&quot;&gt;Edit&lt;/button&gt;
+            &lt;button @click=&quot;deleteStudent(student.id)&quot;&gt;Delete&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div v-else&gt;
+        &lt;p&gt;No students found.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;CreateStudentModal
+        v-if=&quot;isCreateModalVisible&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchStudents&quot;
+    /&gt;
+
+    &lt;EditStudentModal
+        v-if=&quot;isEditModalVisible&quot;
+        :student=&quot;selectedStudent&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchStudents&quot;
+    /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import API from &quot;@/axios&quot;;
+import CreateStudentModal from &quot;../components/CreateStudentModal.vue&quot;;
+import EditStudentModal from &quot;../components/EditStudentModal.vue&quot;;
+
+export default {
+  components: {
+    CreateStudentModal,
+    EditStudentModal,
+  },
+  data() {
+    return {
+      students: [],
+      searchQuery: &quot;&quot;,
+      isCreateModalVisible: false,
+      isEditModalVisible: false,
+      selectedStudent: null,
+    };
+  },
+  computed: {
+    filteredStudents() {
+      return this.students.filter((student) =&gt;
+          student.full_name
+              .toLowerCase()
+              .includes(this.searchQuery.toLowerCase()) ||
+          student.class_name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    },
+  },
+  methods: {
+    async fetchStudents() {
+      try {
+        const response = await API.get(&quot;/students/&quot;);
+        const studentsData = response.data;
+        const classesResponse = await API.get(&quot;/classes/&quot;);
+        const classes = classesResponse.data.reduce((map, klass) =&gt; {
+          map[klass.id] = klass;
+          return map;
+        }, {});
+        this.students = studentsData.map((student) =&gt; ({
+          ...student,
+          full_name: `${student.first_name} ${student.last_name} ${student.middle_name || &quot;&quot;}`.trim(),
+          class_name: student.klass &amp;&amp; classes[student.klass]
+              ? `${classes[student.klass].parallel}-${classes[student.klass].class_number}`
+              : &quot;No Class&quot;,
+        }));
+      } catch (error) {
+        console.error(&quot;Error fetching students:&quot;, error);
+      }
+    },
+    async deleteStudent(studentId) {
+      try {
+        await API.delete(`/students/${studentId}/`);
+        this.students = this.students.filter((student) =&gt; student.id !== studentId);
+      } catch (error) {
+        console.error(&quot;Error deleting student:&quot;, error);
+      }
+    },
+    openCreateModal() {
+      this.selectedStudent = null;
+      this.isCreateModalVisible = true;
+    },
+    openEditModal(student) {
+      this.selectedStudent = {...student};
+      this.isEditModalVisible = true;
+    },
+    closeModal() {
+      this.isCreateModalVisible = false;
+      this.isEditModalVisible = false;
+    },
+  },
+  mounted() {
+    this.fetchStudents();
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+@import &quot;@/assets/styles.css&quot;;
+&lt;/style&gt;
+</code></pre>
+<hr />
+<h2 id="4">4. <strong>Классы</strong></h2>
+<p>Поиск, добавлене, редактирование и удаление классов - возможны, а также доступен просмотр детальной информации:</p>
+<p><img alt="" src="../../img/classes2.png" /></p>
+<pre><code class="language-python">&lt;template&gt;
+  &lt;div class=&quot;classes-container&quot;&gt;
+    &lt;header&gt;
+      &lt;input
+          v-model=&quot;searchQuery&quot;
+          type=&quot;text&quot;
+          class=&quot;search-input&quot;
+          placeholder=&quot;Search by class or parallel&quot;
+      /&gt;
+    &lt;/header&gt;
+
+    &lt;button @click=&quot;openCreateModal&quot; class=&quot;add-class-btn&quot;&gt;Add Class&lt;/button&gt;
+
+    &lt;main&gt;
+      &lt;div v-if=&quot;filteredClasses.length &gt; 0&quot; class=&quot;class-list&quot;&gt;
+        &lt;div
+            v-for=&quot;klass in filteredClasses&quot;
+            :key=&quot;klass.id&quot;
+            class=&quot;class-card&quot;
+        &gt;
+          &lt;div class=&quot;class-card-header&quot;&gt;
+            &lt;!-- Отображаем параллель и номер класса --&gt;
+            &lt;h3&gt;{{ klass.parallel }}-{{ klass.class_number }}&lt;/h3&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;class-card-footer&quot;&gt;
+            &lt;button @click=&quot;openEditModal(klass)&quot;&gt;Edit&lt;/button&gt;
+            &lt;button @click=&quot;deleteClass(klass.id)&quot;&gt;Delete&lt;/button&gt;
+            &lt;button @click=&quot;openDetailModal(klass)&quot;&gt;Details&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div v-else&gt;
+        &lt;p&gt;No classes found.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;CreateClassModal
+        v-if=&quot;isCreateModalVisible&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchClasses&quot;
+    /&gt;
+    &lt;EditClassModal
+        v-if=&quot;isEditModalVisible&quot;
+        :klass=&quot;selectedClass&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchClasses&quot;
+    /&gt;
+    &lt;ClassDetailsModal
+        v-if=&quot;isDetailModalVisible&quot;
+        :klass=&quot;selectedClass&quot;
+        @close=&quot;closeModal&quot;
+    /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import API from &quot;@/axios&quot;;
+import CreateClassModal from &quot;../components/CreateClassModal.vue&quot;;
+import EditClassModal from &quot;../components/EditClassModal.vue&quot;;
+import ClassDetailsModal from &quot;../components/ClassDetailsModal.vue&quot;;
+
+export default {
+  components: {
+    CreateClassModal,
+    EditClassModal,
+    ClassDetailsModal,
+  },
+  data() {
+    return {
+      classes: [],
+      searchQuery: &quot;&quot;,
+      isCreateModalVisible: false,
+      isEditModalVisible: false,
+      isDetailModalVisible: false,
+      selectedClass: null,
+      teachers: [],
+    };
+  },
+  computed: {
+    filteredClasses() {
+      return this.classes.filter((klass) =&gt;
+          `${klass.parallel}-${klass.class_number}`
+              .toLowerCase()
+              .includes(this.searchQuery.toLowerCase())
+      );
+    },
+  },
+  methods: {
+    async fetchClasses() {
+      try {
+        const response = await API.get(&quot;/classes/&quot;);
+        this.classes = response.data;
+      } catch (error) {
+        console.error(&quot;Error fetching classes:&quot;, error);
+      }
+    },
+    openCreateModal() {
+      this.selectedClass = null;
+      this.isCreateModalVisible = true;
+    },
+    openEditModal(klass) {
+      this.selectedClass = {...klass};
+      this.isEditModalVisible = true;
+    },
+    openDetailModal(klass) {
+      this.selectedClass = {...klass};
+      this.isDetailModalVisible = true;
+    },
+    closeModal() {
+      this.isCreateModalVisible = false;
+      this.isEditModalVisible = false;
+      this.isDetailModalVisible = false;
+    },
+    async deleteClass(classId) {
+      try {
+        await API.delete(`/classes/${classId}/`);
+        this.classes = this.classes.filter((klass) =&gt; klass.id !== classId);
+      } catch (error) {
+        console.error(&quot;Error deleting class:&quot;, error);
+      }
+    },
+  },
+  mounted() {
+    this.fetchClasses();
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+@import &quot;@/assets/styles.css&quot;;
+&lt;/style&gt;
+</code></pre>
+<hr />
+<h2 id="5">5. <strong>Уроки</strong></h2>
+<p>Все то же самое можно делать с уроками, а также просматривать подробную информацию о них:</p>
+<p><img alt="" src="../../img/lessons1.png" />
+<img alt="" src="../../img/lessons2.png" />
+<img alt="" src="../../img/classrooms.png" /></p>
+<pre><code class="language-python">&lt;template&gt;
+  &lt;div class=&quot;app-container&quot;&gt;
+    &lt;header class=&quot;app-header&quot;&gt;
+      &lt;select v-model=&quot;selectedClass&quot; class=&quot;class-select&quot;&gt;
+        &lt;option v-for=&quot;klass in Object.values(classes)&quot; :key=&quot;klass.id&quot; :value=&quot;klass.id&quot;&gt;
+          {{ klass.parallel }}-{{ klass.class_number }}
+        &lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/header&gt;
+
+    &lt;button @click=&quot;openCreateModal&quot; class=&quot;add-lesson-btn&quot;&gt;Add Lesson&lt;/button&gt;
+
+    &lt;main class=&quot;main-content&quot;&gt;
+      &lt;div v-if=&quot;filteredLessons.length &gt; 0&quot; class=&quot;lesson-calendar&quot;&gt;
+        &lt;div class=&quot;weekday-header&quot; v-for=&quot;weekday in weekdays&quot; :key=&quot;weekday&quot;&gt;
+          {{ weekday }}
+        &lt;/div&gt;
+        &lt;div
+            v-for=&quot;lessonSlot in lessonSlots&quot;
+            :key=&quot;lessonSlot.id&quot;
+            class=&quot;lesson-slot&quot;
+        &gt;
+          &lt;div v-if=&quot;lessonSlot.lesson&quot; class=&quot;lesson-card&quot;&gt;
+            &lt;a @click=&quot;openDetailsModal(lessonSlot.lesson)&quot;&gt;
+              &lt;h3&gt;{{ lessonSlot.lesson.subject.name }}&lt;/h3&gt;
+              &lt;p&gt;&lt;strong&gt;Teacher:&lt;/strong&gt; {{ lessonSlot.lesson.teacher.first_name }} {{ lessonSlot.lesson.teacher.last_name }}&lt;/p&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div v-else&gt;
+        &lt;p&gt;No lessons found for the selected class.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;CreateLessonModal
+        v-if=&quot;isCreateModalVisible&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchLessons&quot;
+    /&gt;
+
+    &lt;EditLessonModal
+        v-if=&quot;isEditModalVisible&quot;
+        :lesson=&quot;selectedLesson&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchLessons&quot;
+    /&gt;
+
+    &lt;DetailsLessonModal
+        v-if=&quot;isDetailsModalVisible&quot;
+        :lesson=&quot;selectedLesson&quot;
+        @close=&quot;closeModal&quot;
+        @delete=&quot;deleteLesson&quot;
+        @edit=&quot;openEditModal&quot;
+    /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import API from &quot;@/axios&quot;;
+import CreateLessonModal from &quot;../components/CreateLessonModal.vue&quot;;
+import EditLessonModal from &quot;../components/EditLessonModal.vue&quot;;
+import DetailsLessonModal from &quot;../components/LessonDetailsModal.vue&quot;;
+
+export default {
+  components: {
+    CreateLessonModal,
+    EditLessonModal,
+    DetailsLessonModal,
+  },
+  data() {
+    return {
+      lessons: [],
+      classes: {},
+      selectedClass: null,
+      weekdays: [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;],
+      lessonSlots: [],
+      isCreateModalVisible: false,
+      isEditModalVisible: false,
+      isDetailsModalVisible: false,
+      selectedLesson: null,
+    };
+  },
+  computed: {
+    filteredLessons() {
+      return this.lessons.filter(
+          (lesson) =&gt; lesson.klass === this.selectedClass
+      );
+    },
+  },
+  methods: {
+    generateLessonSlots() {
+      this.lessonSlots = [];
+      for (let number = 1; number &lt;= 7; number++) {
+        this.weekdays.forEach((weekday) =&gt; {
+          const lesson = this.filteredLessons.find(
+              (l) =&gt; l.weekday === weekday &amp;&amp; l.lesson_number === number
+          );
+          this.lessonSlots.push({
+            id: `${weekday}-${number}`,
+            lesson,
+          });
+        });
+      }
+    },
+    async fetchLessons() {
+      try {
+        const response = await API.get(&quot;/lessons/&quot;);
+        const classesResponse = await API.get(&quot;/classes/&quot;);
+        this.classes = classesResponse.data.reduce((map, klass) =&gt; {
+          map[klass.id] = klass;
+          return map;
+        }, {});
+        this.lessons = response.data;
+        if (!this.selectedClass) {
+          this.selectedClass = Object.keys(this.classes)[0];
+        }
+        this.generateLessonSlots();
+      } catch (error) {
+        console.error(&quot;Error fetching lessons:&quot;, error);
+      }
+    },
+    async deleteLesson(lessonId) {
+      try {
+        await API.delete(`/lessons/${lessonId}/`);
+        this.lessons = this.lessons.filter((lesson) =&gt; lesson.id !== lessonId);
+        this.generateLessonSlots();
+      } catch (error) {
+        console.error(&quot;Error deleting lesson:&quot;, error);
+      }
+    },
+    openCreateModal() {
+      this.isCreateModalVisible = true;
+    },
+    openEditModal(lesson) {
+      this.selectedLesson = { ...lesson };
+      this.isDetailsModalVisible = false;
+      this.isEditModalVisible = true;
+    },
+    openDetailsModal(lesson) {
+      this.selectedLesson = { ...lesson };
+      this.isDetailsModalVisible = true;
+      this.isEditModalVisible = false;
+    },
+    closeModal() {
+      this.isCreateModalVisible = false;
+      this.isEditModalVisible = false;
+      this.isDetailsModalVisible = false;
+    },
+  },
+  watch: {
+    selectedClass() {
+      this.generateLessonSlots();
+    },
+  },
+  mounted() {
+    this.fetchLessons();
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+@import &quot;@/assets/styles.css&quot;;
+
+.lesson-calendar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 100px;
+  gap: 10px;
+}
+
+.weekday-header {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 5px 0;
+  border: 1px solid #ddd;
+  line-height: 1.1;
+}
+
+.lesson-slot {
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lesson-card {
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.lesson-card:hover {
+  background-color: #f0f8ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.lesson-card p {
+  margin: 4px 0 0;
+  font-size: 16px;
+  text-align: center;
+  color: #555;
+}
+
+.lesson-card a {
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lesson-card a:hover {
+  text-decoration: none;
+}
+&lt;/style&gt;
+</code></pre>
+<hr />
+<h2 id="6">6. <strong>Оценки</strong></h2>
+<p>Оценку можно создать, переключаться между классами и тп:</p>
+<p><img alt="" src="../../img/mark1.png" />
+<img alt="" src="../../img/mark2.png" /></p>
+<pre><code class="language-python">&lt;template&gt;
+  &lt;div class=&quot;app-container&quot;&gt;
+    &lt;header class=&quot;app-header&quot;&gt;
+      &lt;select v-model=&quot;selectedClass&quot; class=&quot;class-select&quot; @change=&quot;fetchGrades&quot;&gt;
+        &lt;option v-for=&quot;klass in classes&quot; :key=&quot;klass.id&quot; :value=&quot;klass.id&quot;&gt;
+          {{ klass.parallel }}-{{ klass.class_number }}
+        &lt;/option&gt;
+      &lt;/select&gt;
+      &lt;button
+          @click=&quot;openCreateModal&quot;
+          class=&quot;add-grade-btn&quot;
+          :disabled=&quot;!students.length&quot;&gt;
+        Add Grade
+      &lt;/button&gt;
+    &lt;/header&gt;
+
+    &lt;main class=&quot;main-content&quot;&gt;
+      &lt;div v-for=&quot;student in students&quot; :key=&quot;student.id&quot; class=&quot;student-grades&quot;&gt;
+        &lt;h3&gt;{{ student.first_name }} {{ student.last_name }}&lt;/h3&gt;
+        &lt;table class=&quot;grades-table&quot;&gt;
+          &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Subject&lt;/th&gt;
+            &lt;th&gt;Grade&lt;/th&gt;
+            &lt;th&gt;Average Grade&lt;/th&gt;
+          &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+          &lt;tr v-for=&quot;subject in subjects&quot; :key=&quot;subject.id&quot;&gt;
+            &lt;td&gt;{{ subject.name }}&lt;/td&gt;
+            &lt;td&gt;
+              &lt;div v-if=&quot;getGrades(student.id, subject.id).length &gt; 0&quot;&gt;
+                &lt;span
+                    v-for=&quot;grade in getGrades(student.id, subject.id)&quot;
+                    :key=&quot;grade.id&quot;
+                    class=&quot;grade-cell&quot;
+                    @click=&quot;openDetailsModal(grade)&quot;
+                &gt;
+                  {{ grade.grade || '-' }}
+                &lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div v-else&gt;-&lt;/div&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              {{ getAverageGrade(student.id, subject.id) }}
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+
+      &lt;p v-if=&quot;students.length === 0&quot;&gt;No students found for the selected class.&lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;CreateGradeModal
+        v-if=&quot;isCreateModalVisible&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchGrades&quot;
+    /&gt;
+    &lt;EditGradeModal
+        v-if=&quot;isEditModalVisible&quot;
+        :grade=&quot;selectedGrade&quot;
+        @close=&quot;closeModal&quot;
+        @save=&quot;fetchGrades&quot;
+    /&gt;
+    &lt;GradeDetailsModal
+        v-if=&quot;isDetailsModalVisible&quot;
+        :grade=&quot;selectedGrade&quot;
+        @close=&quot;closeModal&quot;
+        @edit=&quot;openEditModal&quot;
+        @delete=&quot;deleteGrade&quot;
+    /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import API from &quot;@/axios&quot;;
+import CreateGradeModal from &quot;../components/CreateGradeModal.vue&quot;;
+import EditGradeModal from &quot;../components/EditGradeModal.vue&quot;;
+import GradeDetailsModal from &quot;../components/GradeDetailsModal.vue&quot;;
+
+export default {
+  components: {
+    CreateGradeModal,
+    EditGradeModal,
+    GradeDetailsModal,
+  },
+  data() {
+    return {
+      classes: [],
+      students: [],
+      subjects: [],
+      grades: [],
+      selectedClass: null,
+      isCreateModalVisible: false,
+      isEditModalVisible: false,
+      isDetailsModalVisible: false,
+      selectedGrade: null,
+    };
+  },
+  methods: {
+    async fetchClasses() {
+      try {
+        const response = await API.get(&quot;/classes/&quot;);
+        this.classes = response.data;
+        if (this.classes.length &gt; 0) {
+          this.selectedClass = this.classes[0].id;
+          this.fetchGrades();
+        }
+      } catch (error) {
+        console.error(&quot;Error fetching classes:&quot;, error);
+      }
+    },
+    async fetchGrades() {
+      try {
+        this.students = [];
+        this.subjects = [];
+        this.grades = [];
+
+        const [studentsResponse, gradesResponse, subjectsResponse] = await Promise.all([
+          API.get(`/class/${this.selectedClass}/students/`),
+          API.get(&quot;/grades/&quot;),
+          API.get(&quot;/subjects/&quot;),
+        ]);
+        console.log('Students:', studentsResponse.data.Students);
+
+        this.students = studentsResponse.data.Students;
+        this.subjects = subjectsResponse.data;
+
+        this.grades = gradesResponse.data
+            .map(grade =&gt; {
+              const student = this.students.find(student =&gt; student.id === grade.student);
+              const subject = this.subjects.find(subject =&gt; subject.id === grade.subject);
+
+              if (!student || !subject) {
+                console.warn(`Grade with ID ${grade.id} skipped due to missing student or subject`);
+                return null;
+              }
+
+              return {
+                ...grade,
+                student,
+                subject,
+              };
+            })
+            .filter(grade =&gt; grade !== null);
+
+        this.$nextTick(() =&gt; {
+          if (this.students.length === 0) {
+            console.warn(&quot;No students found after class change&quot;);
+          }
+        });
+      } catch (error) {
+        console.error(&quot;Error fetching grades:&quot;, error);
+      }
+    },
+    getGrades(studentId, subjectId) {
+      return this.grades.filter(
+          grade =&gt; grade.student &amp;&amp; grade.student.id === studentId &amp;&amp;
+              grade.subject &amp;&amp; grade.subject.id === subjectId
+      );
+    },
+    getAverageGrade(studentId, subjectId) {
+      const gradesForSubject = this.getGrades(studentId, subjectId);
+      if (gradesForSubject.length === 0) return '-';
+      const sum = gradesForSubject.reduce((total, grade) =&gt; total + grade.grade, 0);
+      return (sum / gradesForSubject.length).toFixed(2);
+    },
+    openCreateModal() {
+      this.isCreateModalVisible = true;
+    },
+    openEditModal(grade) {
+      this.selectedGrade = { ...grade };
+      this.isDetailsModalVisible = false;
+      this.isEditModalVisible = true;
+    },
+    openDetailsModal(grade) {
+      if (grade) {
+        this.selectedGrade = { ...grade };
+        this.isDetailsModalVisible = true;
+      }
+    },
+    closeModal() {
+      this.isCreateModalVisible = false;
+      this.isEditModalVisible = false;
+      this.isDetailsModalVisible = false;
+    },
+    async deleteGrade(gradeId) {
+      try {
+        await API.delete(`/grades/${gradeId}/`);
+        this.fetchGrades();
+      } catch (error) {
+        console.error(&quot;Error deleting grade:&quot;, error);
+      }
+    },
+  },
+  mounted() {
+    this.fetchClasses();
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+@import &quot;@/assets/styles.css&quot;;
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.class-select {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.add-grade-btn {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.grades-table th,
+.grades-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.grade-cell {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.grade-cell:hover {
+  background-color: #f0f0f0;
+}
+&lt;/style&gt;
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
