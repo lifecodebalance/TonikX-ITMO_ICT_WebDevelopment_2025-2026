@@ -468,19 +468,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Реализация frontend
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -492,103 +479,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Авторизация и регистрация
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Авторизация и регистрация">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1 Регистрация
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2 Логин
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Карточка учителя
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Карточка учеников
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Классы
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Уроки
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Оценки
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -622,92 +512,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Авторизация и регистрация
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Авторизация и регистрация">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1 Регистрация
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2 Логин
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Карточка учителя
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Карточка учеников
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Классы
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Уроки
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Оценки
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -723,9 +527,35 @@
 
 
 <h1 id="no4">Выполнение лабораторной работы №4</h1>
+<h1 id="no4_1">Лабораторная работа №4</h1>
+<h2 id="spa-vuejs-rest-django">Интеграция SPA-фронтенда на Vue.js с REST-бэкендом Django</h2>
+<hr />
+<h2 id="0">0. Общая идея работы и Архитектура проекта</h2>
+<p>В рамках лабораторной работы был разработан одностраничный веб-интерфейс (SPA) для системы управления школьными данными.<br />
+Фронтенд реализован на Vue.js, а взаимодействие с серверной частью происходит через REST API, реализованное на Django с использованием Django REST Framework.</p>
+<p>Приложение работает без перезагрузки страниц: все данные загружаются и обновляются через HTTP-запросы.</p>
+<p>Проект построен по <strong>клиент-серверной архитектуре</strong>.</p>
+<h3 id="_1">Используемые технологии</h3>
+<ul>
+<li><strong>Frontend:</strong> Vue.js, Vue Router, Axios  </li>
+<li><strong>Backend:</strong> Django, Django REST Framework</li>
+</ul>
+<hr />
 <h2 id="1">1. <strong>Авторизация и регистрация</strong></h2>
-<p>Для работы со всеми сущностями системы надо войти или зарегестрироваться:</p>
+<p>Для доступа к функционалу системы пользователь должен зарегистрироваться и войти.</p>
 <h3 id="11">1.1 Регистрация</h3>
+<p>Форма регистрации отправляет данные пользователя на backend-эндпоинт:</p>
+<pre><code>POST /auth/users/
+</code></pre>
+<p>Что делает страница:
+- отображает форму регистрации;
+- собирает данные пользователя;
+- отправляет POST-запрос;
+- после успешной регистрации перенаправляет на страницу логина.</p>
+<p>Ключевые моменты:
+- используется v-model для привязки полей формы;
+- отправка формы происходит без перезагрузки страницы;
+- используется общий Axios-клиент (API).</p>
 <p><img alt="" src="../../img/reg.png" /></p>
 <pre><code class="language-python">&lt;template&gt;
   &lt;div class=&quot;container&quot;&gt;
@@ -780,6 +610,17 @@ export default {
 </code></pre>
 <hr />
 <h3 id="12">1.2 Логин</h3>
+<p>После регистрации пользователь входит в систему:</p>
+<pre><code>POST /auth/token/login/
+</code></pre>
+<p>Логика работы:
+- пользователь вводит логин и пароль;
+- фронтенд отправляет POST-запрос;
+- backend возвращает токен авторизации;
+- токен сохраняется в TokenStore;
+- все последующие запросы используют этот токен;
+- пользователь перенаправляется в личный кабинет.</p>
+<p>Это позволяет защитить API и ограничить доступ.</p>
 <p><img alt="" src="../../img/log.png" />
 <img alt="" src="../../img/LOGGED.png" /></p>
 <pre><code class="language-python">&lt;template&gt;
@@ -831,7 +672,19 @@ export default {
 </code></pre>
 <hr />
 <h2 id="2">2. <strong>Карточка учителя</strong></h2>
-<p>Учителей можно искать, добавлять, редактировать и удалять:</p>
+<p>Раздел «Учителя» реализует полный CRUD.</p>
+<p>Возможности:
+- просмотр списка учителей;
+- поиск по имени;
+- добавление нового учителя;
+- редактирование данных;
+- удаление учителя.</p>
+<p>Как это работает:
+- при загрузке страницы выполняется GET /teachers/;
+- данные преобразуются в удобный для отображения формат;
+- используется фильтрация на стороне фронтенда;
+- операции create/update/delete выполняются через POST / PUT / DELETE.</p>
+<p>Фронтенд не хранит данные локально, а всегда работает с актуальным состоянием бэкенда.</p>
 <p><img alt="" src="../../img/students.png" /></p>
 <pre><code class="language-python">&lt;template&gt;
   &lt;div class=&quot;app-container&quot;&gt;
@@ -973,7 +826,11 @@ export default {
 </code></pre>
 <hr />
 <h2 id="3">3. <strong>Карточка учеников</strong></h2>
-<p>Учеников также можно искать, добавлять, редактировать и удалять:</p>
+<p>Раздел «Ученики» аналогичен разделу учителей.</p>
+<p>Дополнительно:
+- для отображения класса ученика выполняется дополнительный запрос к /classes/;
+- происходит сопоставление student.klass --&gt; класс.</p>
+<p>Это демонстрирует работу с связанными сущностями.</p>
 <p><img alt="" src="../../img/classes.png" /></p>
 <pre><code class="language-python">&lt;template&gt;
   &lt;div class=&quot;app-container&quot;&gt;
@@ -1112,7 +969,15 @@ export default {
 </code></pre>
 <hr />
 <h2 id="4">4. <strong>Классы</strong></h2>
-<p>Поиск, добавлене, редактирование и удаление классов - возможны, а также доступен просмотр детальной информации:</p>
+<p>Раздел классов позволяет:
+- создавать классы;
+- редактировать;
+- удалять;
+- просматривать детальную информацию.</p>
+<p>Особенность:
+- используется модальное окно с деталями;
+- состояние выбранного класса хранится во фронтенде;
+- данные всегда синхронизированы с API.</p>
 <p><img alt="" src="../../img/classes2.png" /></p>
 <pre><code class="language-python">&lt;template&gt;
   &lt;div class=&quot;classes-container&quot;&gt;
@@ -1249,7 +1114,20 @@ export default {
 </code></pre>
 <hr />
 <h2 id="5">5. <strong>Уроки</strong></h2>
-<p>Все то же самое можно делать с уроками, а также просматривать подробную информацию о них:</p>
+<p>Что делает страница:
+- загружает список классов;
+- загружает все уроки;
+- фильтрует уроки по выбранному классу;
+- отображает расписание в виде таблицы:
+- дни недели * номера уроков.</p>
+<p>Как формируется расписание:
+1. выполняется GET /lessons/;
+2. выполняется GET /classes/;
+3. оценки фильтруются по классу;
+4. данные раскладываются в сетку:
+5. день недели + номер урока;
+6. каждый слот либо пустой, либо содержит урок.</p>
+<p>Таким образом фронтенд сам собирает расписание, не нагружая backend лишней логикой.</p>
 <p><img alt="" src="../../img/lessons1.png" />
 <img alt="" src="../../img/lessons2.png" />
 <img alt="" src="../../img/classrooms.png" /></p>
@@ -1496,7 +1374,23 @@ export default {
 </code></pre>
 <hr />
 <h2 id="6">6. <strong>Оценки</strong></h2>
-<p>Оценку можно создать, переключаться между классами и тп:</p>
+<p>Раздел оценок реализует:
+- выбор класса;
+- отображение учеников класса;
+- отображение оценок по предметам;
+- подсчёт среднего балла.</p>
+<p>Последовательность работы:
+1. пользователь выбирает класс;
+2.  выполняются запросы:
+- /class/{id}/students/
+- /grades/
+- /subjects/
+3. данные объединяются во фронтенде;
+4. оценки группируются по ученикам и предметам;
+5. считается среднее значение.</p>
+<p>Это демонстрирует:
+- работу с несколькими источниками данных;
+- разработку связей "ученик - предмет - оценка".</p>
 <p><img alt="" src="../../img/mark1.png" />
 <img alt="" src="../../img/mark2.png" /></p>
 <pre><code class="language-python">&lt;template&gt;
@@ -1747,6 +1641,28 @@ export default {
 }
 &lt;/style&gt;
 </code></pre>
+<h2 id="7">7. Взаимодействие фронтеда и бэкэнда</h2>
+<ul>
+<li>Axios-клиент с базовым URL;</li>
+<li>токен передаётся автоматически;</li>
+<li>фронтенд не содержит бизнес-логики - она на backend;</li>
+<li>фронтенд отвечает за:</li>
+<li>отображение;</li>
+<li>пользовательский ввод;</li>
+<li>отправку запросов;</li>
+<li>обработку ответов.</li>
+</ul>
+<h2 id="8">8. Итоги</h2>
+<p>В результате была реализована полноценная SPA-система, которая:
+- использует REST API;
+- корректно обрабатывает авторизацию;
+- работает с несколькими связанными сущностями;
+- наглядно демонстрирует работу фронтенда с backend-частью.</p>
+<p>Работа показывает практическое применение:
+- Vue.js;
+- Axios;
+- REST-архитектуры;
+- клиент-серверного взаимодействия.</p>
 
 
 
